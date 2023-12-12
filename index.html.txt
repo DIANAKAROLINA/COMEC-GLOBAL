@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comec Global - Estrategia Digital para Exportadoras</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        section {
+            display: none;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+
+        section:first-child {
+            display: block;
+        }
+
+        section h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+
+        section p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        form {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        form label, form input, form textarea, form input[type="submit"] {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        form input, form textarea {
+            padding: 8px;
+            border: 1px solid #ccc;
+        }
+
+        form input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .tab {
+            display: none;
+        }
+
+        .tab-labels {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .tab-label {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+        }
+
+        .tab-label.active {
+            background-color: #ffcc00;
+        }
+    </style>
+    <script>
+        // Código JavaScript
+        function openTab(event, tabId) {
+            var i, tabContent, tabLinks;
+            tabContent = document.getElementsByClassName("tab");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+            }
+            tabLinks = document.getElementsByClassName("tab-label");
+            for (i = 0; i < tabLinks.length; i++) {
+                tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabId).style.display = "block";
+            event.currentTarget.className += " active";
+        }
+        // Por defecto, muestra la primera pestaña al cargar la página
+        document.getElementById("servicios").style.display = "block";
+        document.getElementsByClassName("tab-label")[0].classList.add("active");
+    </script>
+</head>
+<body>
+    <!-- Contenido HTML -->
+    <header>
+        <h1>Comec Global</h1>
+        <nav>
+            <ul>
+                <li><a href="javascript:void(0)" class="tab-label active" onclick="openTab(event, 'servicios')">Servicios</a></li>
+                <li><a href="javascript:void(0)" class="tab-label" onclick="openTab(event, 'nexadrop')">NexaDrop</a></li>
+                <li><a href="javascript:void(0)" class="tab-label" onclick="openTab(event, 'contacto')">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="servicios" class="tab" style="display: block;">
+            <h2>Servicios de Comec Global</h2>
+            <p>
+                Comec Global ofrece estrategias digitales personalizadas para empresas exportadoras a nivel internacional.
+                Nuestros servicios incluyen análisis de mercado, desarrollo de estrategias de marketing digital, optimización de presencia en redes sociales y mucho más.
+            </p>
+            <img src="ruta/imagen_servicio.png" alt="Imagen de servicios" style="max-width: 100%; height: auto;">
+        </section>
+
+        <section id="nexadrop" class="tab">
+            <h2>NexaDrop</h2>
+            <p>
+                NexaDrop es la plataforma integral de Comec Global que actúa como un hub para empresas exportadoras.
+                Permite acceder a información clave, establecer conexiones comerciales valiosas y mantenerse actualizado sobre tendencias y oportunidades en el mercado global.
+                Además, ofrece herramientas de análisis de datos para mejorar la toma de decisiones estratégicas.
+            </p>
+            <img src="ruta/imagen_nexadrop.png" alt="Imagen de NexaDrop" style="max-width: 100%; height: auto;">
+        </section>
+
+        <section id="contacto" class="tab">
+            <h2>Contacto</h2>
+            <form action="/enviar.php" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="empresa">Nombre de la empresa:</label>
+                <input type="text" id="empresa" name="empresa">
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+
+                <input type="submit" value="Enviar">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Comec Global. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
